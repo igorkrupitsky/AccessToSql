@@ -1,0 +1,16 @@
+C:\Igor\AccessToSql\bin\Release\AccessToSql.exe
+C:\Igor\AccessToSql\bin\Release\AccessToSql.pdb
+C:\Igor\AccessToSql\bin\Release\AccessToSql.xml
+C:\Igor\AccessToSql\bin\Release\PoorMansTSqlFormatterLib35.dll
+C:\Igor\AccessToSql\obj\Release\AccessToSql.Form1.resources
+C:\Igor\AccessToSql\obj\Release\AccessToSql.Resources.resources
+C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.GenerateResource.Cache
+C:\Igor\AccessToSql\obj\Release\AccessToSql.exe
+C:\Igor\AccessToSql\obj\Release\AccessToSql.xml
+C:\Igor\AccessToSql\obj\Release\AccessToSql.pdb
+C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.CopyComplete
+C:\Igor\AccessToSql\obj\Release\AccessToSql.FormatSql.resources
+C:\Igor\AccessToSql\obj\Release\Interop.ADODB.dll
+C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.ResolveComReference.cache
+C:\Igor\AccessToSql\obj\Release\AccessToSql.vbprojAssemblyReference.cache
+C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.CoreCompileInputs.cache

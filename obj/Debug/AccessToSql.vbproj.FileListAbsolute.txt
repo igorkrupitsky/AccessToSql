@@ -1,0 +1,14 @@
+C:\Igor\AccessToSql\bin\Debug\AccessToSql.exe
+C:\Igor\AccessToSql\bin\Debug\AccessToSql.pdb
+C:\Igor\AccessToSql\bin\Debug\AccessToSql.xml
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.Form1.resources
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.Resources.resources
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.vbproj.GenerateResource.Cache
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.exe
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.xml
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.pdb
+C:\Igor\AccessToSql\bin\Debug\PoorMansTSqlFormatterLib35.dll
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.FormatSql.resources
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.vbproj.CopyComplete
+C:\Igor\AccessToSql\obj\Debug\Interop.ADODB.dll
+C:\Igor\AccessToSql\obj\Debug\AccessToSql.vbproj.ResolveComReference.cache
