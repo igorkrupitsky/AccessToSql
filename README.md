@@ -4,7 +4,7 @@ Originally posted here:
 ### Introduction
 To use this application, select Access file, Select a view and click SQL. Click Save All to save all Access queries as SQL files to a folder.
 
-![ERD](access_sql_small.png)
+![ERD](img/access_sql_small.png)
 
 The result SQL will be created using CTE (Common Table Expressions) in case the Access query is using other Access queries. For example:
 
