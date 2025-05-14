@@ -12,5 +12,4 @@ C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.CopyComplete
 C:\Igor\AccessToSql\obj\Release\AccessToSql.FormatSql.resources
 C:\Igor\AccessToSql\obj\Release\Interop.ADODB.dll
 C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.ResolveComReference.cache
-C:\Igor\AccessToSql\obj\Release\AccessToSql.vbprojAssemblyReference.cache
 C:\Igor\AccessToSql\obj\Release\AccessToSql.vbproj.CoreCompileInputs.cache

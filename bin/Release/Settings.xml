@@ -18,7 +18,7 @@
   </xs:schema>
   <Table1>
     <key>FilePath</key>
-    <value>C:\Users\80014379\Desktop\Access\Effort Administrator_New Prod.accdb</value>
+    <value>C:\Users\80014379\Desktop\PostAward_New Prod.mdb</value>
   </Table1>
   <Table1>
     <key>RowLimit</key>
@@ -37,6 +37,6 @@
   </Table1>
   <Table1>
     <key>CTE</key>
-    <value>1</value>
+    <value>0</value>
   </Table1>
 </NewDataSet>

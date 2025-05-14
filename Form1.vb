@@ -73,6 +73,7 @@ Public Class Form1
 		dicViews = New Hashtable
 
 		SetViews()
+		LoadProcs()
 
 		'Update Views Listbox
 		Dim oList As New SortedList
@@ -85,7 +86,6 @@ Public Class Form1
 			cmViews.Items.Add(oEntry.Key)
 		Next
 
-		LoadProcs()
 		SetTables()
 	End Sub
 
@@ -200,6 +200,10 @@ Public Class Form1
 			If GetLeft(sName, 4) <> "~sq_" AndAlso dicProcs.ContainsKey(sName) = False Then
 				dicProcs(sName) = sSql
 			End If
+
+			If GetLeft(sName, 4) <> "~sq_" Then
+				dicViews(sName) = sSql
+			End If
 		Next
 	End Sub
 
@@ -300,11 +304,20 @@ Public Class Form1
 
 	Private Function ShowView(ByVal sViewName As String, ByVal bUpdateList As Boolean) As String
 
-		If dicViews.ContainsKey(sViewName) = False Then
+		Dim sVewSql As String = ""
+
+		If dicViews.ContainsKey(sViewName) Then
+			sVewSql = dicViews(sViewName)
+		ElseIf dicProcs.ContainsKey(sViewName) Then
+			sVewSql = dicProcs(sViewName)
+		Else
+			txtSQL.AppendText("Could not find view or proc: " & sViewName & vbCrLf)
+		End If
+
+		If sVewSql = "" Then
 			Return ""
 		End If
 
-		Dim sVewSql As String = dicViews(sViewName)
 		Dim bShowWith As Boolean = False
 		Dim sSql As String = ""
 		Dim dicDepTables As New Hashtable
@@ -383,17 +396,13 @@ Public Class Form1
 			Next
 		End If
 
-
 		Dim sSqlPrefix As String = ""
 		If chkCreateProc.Checked Then
-			'If sVewSql.ToLower().IndexOf("insert") <> -1 OrElse
-			'   sVewSql.ToLower().IndexOf(" into ") <> -1 OrElse
-			'   sVewSql.ToLower().IndexOf("update") <> -1 OrElse
-			'   sVewSql.ToLower().IndexOf("delete") <> -1 Then
-			'	sSqlPrefix = "create proc " & PadTableName(sViewName) & " as " & vbCrLf & vbCrLf
-			'Else
-			sSqlPrefix = "create view " & PadTableName(sViewName) & " as " & vbCrLf & vbCrLf
-			'End If
+			If dicProcs.ContainsKey(sViewName) Then
+				sSqlPrefix = "create proc " & PadTableName(sViewName) & " as " & vbCrLf & vbCrLf
+			ElseIf dicViews.ContainsKey(sViewName) Then 
+				sSqlPrefix = "create view " & PadTableName(sViewName) & " as " & vbCrLf & vbCrLf
+			End If
 		End If
 
 		If chkCTE.Checked = False Then
@@ -1103,7 +1112,7 @@ Public Class Form1
 				If dicViews.ContainsKey(sViewName) Then
 					sViewSql = ShowView(sViewName, False)
 				ElseIf dicProcs.ContainsKey(sViewName) Then
-					sViewSql = ShowProc(sViewName)
+					sViewSql = ShowView(sViewName, False)
 				Else
 					txtSQL.AppendText("Could not find view or proc: " & sViewName & vbCrLf)
 				End If
@@ -1146,25 +1155,9 @@ Public Class Form1
 		If sName = "" Then
 			MsgBox("Please select a view")
 		Else
-			txtSQL.Text = ShowProc(sName)
+			txtSQL.Text = ShowView(sName, False)
 		End If
 	End Sub
-
-	Private Function ShowProc(ByVal sName As String) As String
-
-		If dicProcs.ContainsKey(sName) = False Then
-			Return ""
-		End If
-
-		Dim sProcSql As String = dicProcs(sName)
-
-		Dim sSqlPrefix As String = ""
-		If chkCreateProc.Checked Then
-			sSqlPrefix = "create proc " & PadTableName(sName) & " as " & vbCrLf & vbCrLf
-		End If
-
-		Return sSqlPrefix & PadSql(sProcSql)
-	End Function
 
 	Private Sub btnSaveAllProcs_Click(sender As Object, e As EventArgs) Handles btnSaveAllProcs.Click
 		Dim sFolderPath As String = GetFolderPath("Procs", True)
@@ -1177,7 +1170,7 @@ Public Class Form1
 
 		For Each oEntry As DictionaryEntry In dicProcs
 			Dim sProcName As String = oEntry.Key
-			Dim sSql As String = ShowProc(sProcName)
+			Dim sSql As String = ShowView(sProcName, False)
 			Dim sFilePath As String = System.IO.Path.Combine(sFolderPath, sProcName & ".sql")
 			Dim oFile As New IO.StreamWriter(sFilePath, True)
 			oFile.Write(sSql)
