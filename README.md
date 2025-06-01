@@ -15,9 +15,11 @@ With a as (
 )
 Select col3
 From a
+```
+
 In case Access query is using Access table, the table will be scripted as a CTE with UNION ALL clause. For example:
 
-SQL
+```SQL
  With a as (
     select 1 as col1, 2 as col2 UNION ALL
     select 1 as col1, 2 as col2 
