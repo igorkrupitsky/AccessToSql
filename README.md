@@ -8,8 +8,7 @@ To use this application, select Access file, Select a view and click SQL. Click 
 
 The result SQL will be created using CTE (Common Table Expressions) in case the Access query is using other Access queries. For example:
 
-```
-SQL
+```SQL
 With a as (
     select col1 +  col2 as col3
     From table1
