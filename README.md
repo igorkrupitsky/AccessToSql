@@ -26,13 +26,13 @@ In case Access query is using Access table, the table will be scripted as a CTE 
 )
 Select col1, col2
 From a
-Using the Code
 ```
+
+## Using the Code
 
 The tool uses PoorMansTSqlFormatter to make SQL look prettier. To use it, make sure that the “Format SQL” option is checked. I used ILMerge (included in the download) to add PoorMansTSqlFormatterLib35.dll to the AccessToSql2.exe so that I can use it without an installation package.
 
-Plain Text
-```
+```CMD
 C:\ILMerge.exe AccessToSql.exe PoorMansTSqlFormatterLib35.dll /out:AccessToSql2.exe
 ```
 
